@@ -1,0 +1,22 @@
+def max_profit(prices):
+    min_price = float('inf')
+    max_profit = 0
+    
+    for price in prices:
+        if price < min_price:
+            min_price = price
+        
+        profit = price - min_price
+        
+        # Update the maximum profit if the current profit is greater
+        if profit > max_profit:
+            max_profit = profit
+    
+    return max_profit
+
+# Input reading
+n = int(input("Enter the number of days: "))
+prices = list(map(int, input("Enter the prices separated by spaces: ").split()))
+
+# Output the maximum profit
+print(max_profit(prices))
